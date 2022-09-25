@@ -20,7 +20,7 @@ class DefaultController extends AbstractController
         return $this->render('main/default/index.html.twig', []);
     }
 
-    #[Route('/product-add', name: 'prodyct-add')]
+    #[Route('/product-add-old', name: 'prodyct-add-old')]
     public function productAdd(): Response
     {
         $product = new Product();
@@ -34,5 +34,15 @@ class DefaultController extends AbstractController
         $entityManager->flush();
 
         return $this->redirectToRoute('homepage');
+    }
+
+    /**
+     * @Route("/edit-product/{id}", methods="GET|POST", name="product-edit", requirements={"id"="\d+"})
+     * @Route("/add-product", methods="GET|POST", name="add-product")
+     */
+    public function editProduct(Request $request, int $id = null): Response
+    {
+        dd($id);
+        return $this->render('main/default/edit_product.html.twig', []);
     }
 }
