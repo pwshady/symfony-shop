@@ -33,7 +33,7 @@ class Product
     private ?bool $isPublished = null;
 
     #[ORM\Column]
-    private ?bool $isDelited = null;
+    private ?bool $isDeleted = null;
 
     public function __construct()
     {
@@ -52,7 +52,7 @@ class Product
         return $this->title;
     }
 
-    public function setTitle(string $title): self
+    public function setTitle(string $title = null): self
     {
         $this->title = $title;
 
@@ -119,14 +119,14 @@ class Product
         return $this;
     }
 
-    public function isIsDelited(): ?bool
+    public function isIsDeleted(): ?bool
     {
-        return $this->isDelited;
+        return $this->isDeleted;
     }
 
-    public function setIsDelited(bool $isDelited): self
+    public function setIsDeleted(bool $isDeleted): self
     {
-        $this->isDelited = $isDelited;
+        $this->isDeleted = $isDeleted;
 
         return $this;
     }
